@@ -1,0 +1,26 @@
+/* Custom CSS for the spinner container */
+.gif-loading .dash-spinner {
+    width: 100px;  /* Increase the width as needed */
+    height: 100px;  /* Increase the height as needed */
+    background-image: url("running.gif");
+    background-size: contain;  /* Adjust this to cover or 100% 100% if needed */
+    background-repeat: no-repeat;
+    position: relative;  /* Modify if you need absolute positioning */
+    transform: translate(-50%, 5%);
+    left: 50%;
+    top: 50%;
+}
+
+/* Ensure the container is large enough */
+.gif-loading {
+    min-width: 100px;  /* Match the size of the spinner */
+    min-height: 100px;  /* Match the size of the spinner */
+    display: inline-flex;  /* Using flex to center the spinner */
+    align-items: center;
+    justify-content: center;
+}
+
+
+.dash-spinner * {
+    display: none !important;  /* Hide any default or nested spinner elements */
+}

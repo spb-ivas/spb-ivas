@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "Cite SPB-IVAS version 1.0.0-rc.1 and identify the processed data revision used."
+type: software
+title: "SPB-IVAS: A web framework for calibrating and exploring county-level Southern Pine Beetle scenarios"
+version: 1.0.0-rc.1
+license: MIT
+doi: 10.5281/zenodo.24352449
+url: https://spb.digiapp.org/
+authors:
+  - family-names: Song
+    given-names: Bo
+    affiliation: Clemson University
+    email: bosong@clemson.edu
+  - family-names: Williams
+    given-names: Thomas M
+    affiliation: Clemson University
+    email: tmwllms@clemson.edu
+  - family-names: Williams
+    given-names: Brian
+    affiliation: Clemson University
+    email: bwilli8@clemson.edu
+  - family-names: Bao
+    given-names: Shaowu
+    affiliation: Coastal Carolina University
+    email: sbao@coastal.edu
+keywords:
+  - Southern Pine Beetle
+  - research software framework
+  - OLS regression
+  - WaSSI
+  - scenario analysis

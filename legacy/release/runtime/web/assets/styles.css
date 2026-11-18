@@ -1,0 +1,41 @@
+.custom-slider .rc-slider-mark {
+    font-size: 16px;
+}
+
+.custom-slider .rc-slider-mark-text {
+    font-size: 16px;
+}
+
+.custom-slider .rc-slider-dot {
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    border-radius: 50%;
+    border: 2px solid #999;
+    background-color: #fff;
+}
+
+.custom-slider .rc-slider-dot-active {
+    border-color: #666;
+}
+
+@keyframes blinkingText{
+    0%{     color: black;    }
+    49%{    color: black; }
+    50%{    color: transparent; }
+    99%{    color: transparent; }
+    100%{   color: black;    }
+}
+
+.slider .rc-slider-handle {
+    background-color: #007BFF;
+    border-color: #007BFF;
+}
+
+.slider .rc-slider-rail {
+    background-color: #E9ECEF;
+}
+
+.slider .rc-slider-track {
+    background-color: #007BFF;
+}

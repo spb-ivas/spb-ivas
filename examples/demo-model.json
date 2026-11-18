@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "model_type": "shifted_boxcox_ols",
+  "feature_order": [
+    "TMAX_C",
+    "ET_growing",
+    "STD_1",
+    "PINE_DENSITY",
+    "PREV"
+  ],
+  "coefficients": {
+    "const": 0.11140962879229223,
+    "TMAX_C": 0.060187325347783316,
+    "ET_growing": -0.0002613542024890249,
+    "STD_1": 0.11394745192301167,
+    "PINE_DENSITY": -0.02883939577601327,
+    "PREV": 0.2436301902944045
+  },
+  "transform": {
+    "name": "shifted_boxcox_density",
+    "shift": 1.0,
+    "lambda": -0.6014000411005375,
+    "density_unit": "spots per 1000 current-row pine acres",
+    "lag_definition": "PREV_SPOTS is the observed count at matching FIPS and YEAR-1; lag density is 1000*PREV_SPOTS/current-row PINE_ACRES; apply the saved Box-Cox lambda to 1+lag density",
+    "inverse_policy": "inverse Box-Cox minus one; clip negative density to zero; invalid domain stays missing"
+  },
+  "scaler": {
+    "columns": [
+      "TMAX_C",
+      "ET_growing",
+      "PINE_DENSITY"
+    ],
+    "mean": {
+      "TMAX_C": 24.897392857142854,
+      "ET_growing": 52.61907633928571,
+      "PINE_DENSITY": 0.47674088095238093
+    },
+    "std": {
+      "TMAX_C": 1.6253559904993058,
+      "ET_growing": 0.769917247049502,
+      "PINE_DENSITY": 0.10960828084146654
+    },
+    "ddof": 1
+  },
+  "risk": {
+    "reference": "observed eligible training SPOTS",
+    "mean": 4.880952380952381,
+    "std": 2.995598224161023,
+    "ddof": 1,
+    "multipliers": [
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ],
+    "thresholds": [
+      6.378751493032893,
+      7.876550605113405,
+      9.374349717193915,
+      10.872148829274426,
+      12.369947941354939,
+      13.86774705343545
+    ],
+    "levels": [
+      0.0,
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ],
+    "interpretation": "relative count class, not outbreak probability"
+  },
+  "training": {
+    "through_year": 2021,
+    "eligible_rows": 84,
+    "candidate_rows": 96,
+    "excluded_rows": 12,
+    "outside_cutoff_or_invalid_year_rows": 48,
+    "exclusion_reason_counts": {
+      "missing_or_nonfinite_PREV_SPOTS": 12,
+      "nonfinite_lag_density": 12
+    },
+    "zero_spot_rows": 6,
+    "year_min": 2015,
+    "year_max": 2021,
+    "county_count": 12,
+    "design_rank": 6,
+    "design_columns": 6,
+    "condition_number": 10.387582233192605,
+    "maximum_condition_number": 1000000000000.0,
+    "residual_degrees_of_freedom": 78,
+    "residual_sum_squares_transformed": 0.881924324526122,
+    "in_sample_r_squared_transformed": 0.3404535083128871,
+    "data_sha256": "60fafde1cc92ba8201bbf3a21f1e6746911a6a99330919361ef9438173cef801",
+    "observation_policy": "SPOTS is an observed nonnegative count; missing is not zero; no count imputation",
+    "provenance": {
+      "revision": "20250101",
+      "input_sha256": {
+        "prism_stable_20250101.csv": "4e23f68ff6d8397799e850eaa0d2899ee8ff9f1f3c1b64c1330ba8b316bf501c",
+        "prism_provisional_20250101.csv": "207343a4cb402562e626ac7465deae4c5ff4e63982d6ffef51e888f9e895c766",
+        "cpc_20250101.csv": "994fce79ce6ec770aba2832c4c9ebd85eb4c33c01d384e81b375a0acde963a84",
+        "wassi_20250101.csv": "562dab385b49384e4621576ec3f42be05b249edf1d84bcadb1153a7c74464935",
+        "fia_20250101.csv": "7a4593a084404405d3f8e16a0468aaab7fedc163871f9c92ea3b0d123cd0624f",
+        "spots_20250101.csv": "184126bd565f2443b00537f76d68ddc763e695d53887d36939ba89215bc3e07e"
+      }
+    },
+    "versions": {
+      "python": "3.9.18",
+      "numpy": "2.0.2",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1"
+    }
+  }
+}
